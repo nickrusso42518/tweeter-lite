@@ -21,8 +21,9 @@ def main():
     """
 
     # Choose a random file from the text/ directory
-    files = os.listdir("text")
-    filename = f"text/{random.choice(files)}"
+    filedir = "text"
+    files = os.listdir(filedir)
+    filename = f"{filedir}/{random.choice(files)}"
 
     # Open the file and read in all the text
     with open(filename, "r") as handle:
