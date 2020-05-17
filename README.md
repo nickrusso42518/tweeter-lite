@@ -10,7 +10,7 @@ two constraints:
 
 Install the required packages with `pip install -r requirements.txt`.
 
-Then, run the script with `python tweeter-lite.py`.
+Then, run the script with `python tl.py`.
 
 If the length is too long, you'll see a message like this:
 ```
