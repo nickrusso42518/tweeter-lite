@@ -6,6 +6,7 @@ Purpose: Randomly display archived tweets for recycling. This project is
 deliberately stripped down for demonstration purposes.
 """
 
+import logging
 import os
 import re
 import random
@@ -25,6 +26,15 @@ def main():
     files = os.listdir(filedir)
     filename = f"{filedir}/{random.choice(files)}"
 
+    # Create a basic logger using a common configuration
+    # Example format: 2020-05-20 07:12:38 INFO Hello world!
+    logging.basicConfig(
+        format="%(asctime)s %(levelname)-8s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+        level=logging.DEBUG,
+    )
+    logger = logging.getLogger()
+
     # Open the file and read in all the text
     with open(filename, "r") as handle:
         text = handle.read()
@@ -39,7 +49,12 @@ def main():
     url_search = re.search(r"(?P<url>https?://[^\s]+)", text)
     if url_search:
         url = url_search.group("url")
-        resp = requests.head(url, allow_redirects=True)
+        logger.info("Sending HEAD request to %s", url)
+        resp = requests.head(url, allow_redirects=False)
+
+        # Optional debugging statement
+        # breakpoint()  # py3.7+
+        # import pdb; pdb.set_trace()  # py3.6-
 
         # Can't just test for resp.ok, we want unfollowed redirects to fail
         if resp.status_code != 200:
