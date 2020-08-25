@@ -50,7 +50,7 @@ def main():
     if url_search:
         url = url_search.group("url")
         logger.info("Sending HEAD request to %s", url)
-        resp = requests.head(url, allow_redirects=False)
+        resp = requests.head(url, allow_redirects=True)
 
         # Optional debugging statement
         # breakpoint()  # py3.7+
