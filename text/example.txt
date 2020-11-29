@@ -1,1 +1,1 @@
-Hi everyone, thanks for joining my @OReillyMedia live class titled "Getting Started with Python Requests". Here's the link you joined: https://tinyurl.com/y6cgyv77
+Hi everyone, thanks for joining my @OReillyMedia live class titled "Getting Started with Python Requests Using REST APIs". Here's the link you joined: http://njrusmc.net/r/sltreq
