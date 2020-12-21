@@ -42,7 +42,7 @@ def main():
     # Perform a quick length check
     chars = len(text)
     if chars >= MAX_CHARS:
-        print(f"{filename}: Message to long -> {chars} < {MAX_CHARS}")
+        print(f"{filename}: Message to long -> {chars} >= {MAX_CHARS}")
         print(80 * "-")
 
     # Perform a quick URL check to ensure link is valid (if a URL exists)
