@@ -10,7 +10,7 @@ import logging
 import os
 import re
 import random
-import requests
+import httpx
 
 # The maximum tweet length to check against (Twitter max is 280)
 MAX_CHARS = 260
@@ -36,7 +36,7 @@ def main():
     logger = logging.getLogger()
 
     # Open the file and read in all the text
-    with open(filename, "r") as handle:
+    with open(filename, "r", encoding="utf-8") as handle:
         text = handle.read()
 
     # Perform a quick length check
@@ -50,7 +50,9 @@ def main():
     if url_search:
         url = url_search.group("url")
         logger.info("Sending HEAD request to %s", url)
-        resp = requests.head(url, allow_redirects=True)
+
+        # httpx DOES NOT follow redirects by default; must explicitly enable
+        resp = httpx.head(url, follow_redirects=True)
 
         # Optional debugging statement
         # breakpoint()  # py3.7+
@@ -58,7 +60,9 @@ def main():
 
         # Can't just test for resp.ok, we want unfollowed redirects to fail
         if resp.status_code != 200:
-            print(f"{url}: HEAD failed -> {resp.status_code} / {resp.reason}")
+            print(
+                f"{url}: HEAD failed -> {resp.status_code} / {resp.reason_phrase}"
+            )
             print(80 * "-")
 
     # Print the tweet text for copy/paste
