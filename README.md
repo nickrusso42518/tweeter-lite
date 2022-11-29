@@ -6,7 +6,7 @@ https://travis-ci.com/nickrusso42518/tweeter-lite)
 This project can be used to verify Twitter messages (tweets) against
 two constraints:
   1. **Length**: tweets can be only so long
-  2. **Valid URL**: If you embed a URL use Python `requests` to ensure it works
+  2. **Valid URL**: If you embed a URL use Python `httpx` to ensure it works
 
 Install the required packages with `pip install -r requirements.txt`.
 
