@@ -1,1 +1,1 @@
-Hi everyone, thanks for joining my @OReillyMedia live class titled "Hands-On Python Programming with HTTPX". Here's the link you joined: http://njrusmc.net/r/slthttpx
+Hi everyone, thanks for joining my @OReillyMedia live class titled "Hands-On Python Programming with HTTPX". Here's the link you joined: https://njrusmc.net/r/slthttpx
